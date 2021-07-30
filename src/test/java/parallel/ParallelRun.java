@@ -5,7 +5,7 @@ import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(
-		features = {"src/test/resources/parallel/"},
+		features = {"src/test/resources/parallel/AccountsPage.feature"},
 		glue = {"parallel"},
 		monochrome = false,
 		publish = true,

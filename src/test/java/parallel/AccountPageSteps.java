@@ -2,11 +2,14 @@ package parallel;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Properties;
+
 import org.junit.Assert;
 
 import com.pages.AccountsPage;
 import com.pages.LoginPage;
 import com.qa.factory.DriverFactory;
+import com.qa.util.ConfigReader;
 
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
@@ -15,15 +18,17 @@ import io.cucumber.java.en.Then;
 public class AccountPageSteps {
     private LoginPage loginPage = new LoginPage(DriverFactory.getDriver());
     private AccountsPage accountsPage;
-   // private Properties prop;
+    ConfigReader configReader = new ConfigReader();
+    private Properties prop;
 	@Given("user has already logged in to application")
 	public void user_has_already_logged_in_to_application(DataTable credTable) {
 	    List<Map<String,String>> credsList = credTable.asMaps();	   
 	    String username = credsList.get(0).get("username");
 	    String pwd = credsList.get(0).get("password");
-	    //String url = prop.getProperty("url");	       
+	    prop = configReader.initProp();
+	    String url = prop.getProperty("url");	       
 	    System.out.println(credsList);
-	    DriverFactory.getDriver().get("http://automationpractice.com/index.php?controller=authentication&back=my-account");
+	    DriverFactory.getDriver().get(url);
 	    accountsPage = loginPage.doLogin(username, pwd);
 	}
 
