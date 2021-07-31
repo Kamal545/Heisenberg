@@ -5,12 +5,12 @@ import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(
-		features = {"src/test/resources/parallel/AccountsPage.feature"},
+		features = {"src/test/resources/parallel/loginPage.feature"},
 		glue = {"parallel"},
-		monochrome = false,
+		monochrome = true,
 		publish = true,
 		dryRun = false,
-		//tags = "@Smoke",
+		tags = "@Smoke",
 		plugin = {"pretty", 
 				"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",
 				"timeline:test-output-thread/"

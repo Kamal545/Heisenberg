@@ -1,6 +1,8 @@
 package parallel;
 
 import java.util.Properties;
+import java.util.Set;
+
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -25,6 +27,13 @@ public class ApplicationHooks {
 		String browserName = prop.getProperty("browser");
 		driverFactory = new DriverFactory();
 		driver = driverFactory.initBrowser(browserName);
+		Set<String> sessions = driver.getWindowHandles();
+		for(String child:sessions) {
+			driver.switchTo().window(child);
+			if(driver.getTitle().equalsIgnoreCase("settings")) {
+				driver.close();
+			}
+		}
 	}
 	@After(order=0)
 	public void quitBrowser(){

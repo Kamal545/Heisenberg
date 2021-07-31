@@ -1,5 +1,5 @@
 Feature: Login page feature
-
+@Smoke
 Scenario: Login page title
 Given user is on login page
 When user gets the title of the page
@@ -16,7 +16,7 @@ And user enters password "Mobileadhoc@25"
 And user clicks on Login button
 Then user gets the title of the page
 And page title should be "My account - My Store"
-@Smoke
+
 Scenario Outline: Login with incorrect credentials
 Given user is on login page
 When user enters username "<username>"
