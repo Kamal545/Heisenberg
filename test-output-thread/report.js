@@ -1,14 +1,14 @@
 $(document).ready(function() {
 CucumberHTML.timelineItems.pushArray([
   {
-    "id": "0c6678d3-3f32-40fb-9452-d476822f58e3",
-    "feature": "Login page feature",
-    "scenario": "Login page title",
-    "start": 1627722589807,
+    "id": "01452bed-7ede-4d5c-b9c4-0692de6e405b",
+    "feature": "DataBase",
+    "scenario": "Fetch the max salary",
+    "start": 1627751180568,
     "group": 14,
     "content": "",
-    "tags": "@smoke,",
-    "end": 1627722629453,
+    "tags": "",
+    "end": 1627751263066,
     "className": "passed"
   }
 ]);
